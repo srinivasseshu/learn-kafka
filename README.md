@@ -3,7 +3,7 @@
 
 ## Introduction/Jargon
 
-Kafka provides a fast, distributed, highly scalable, highly avialable pub-sub messaging system.
+Kafka provides a fast, distributed, highly scalable, highly available pub-sub messaging system.
 
 - Topics
 - Producers

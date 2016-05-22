@@ -1,4 +1,7 @@
 
+# Learning Kafka
+
+## Jargon
 
 Topics
 Producers
@@ -11,3 +14,7 @@ Topic can be split into multiple partitions. Each partition will have it's offse
 Each message is uniquely identified by:
 TopicName,Partition#,UniqueOffsetWithinPartition
 
+
+```
+adfdfad
+```

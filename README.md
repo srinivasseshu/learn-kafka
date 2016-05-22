@@ -79,12 +79,31 @@ Kafka depends on Zookeeper for:
 - Who's the leader
 - Topics available, etc...
 
+In config/server.properties:
+- broker.id=0
+- listeners=PLAINTEXT://:9092
+- port=9092
+- log.dirs=/Users/schipp200/Documents/app/kafka_2.11-0.9.0.1/test/kafka-log-1
+
 Starting Zookeeper:
 ```
 bin/zookeeper-server-start.sh config/zookeeper.properties &
 ```
 
 Starting Broker:
+```
+bin/kafka-server-start.sh config/server.properties &
+```
+
+cp server.properties server2.properties
+Make changes to server2.properties as:
+- broker.id=1
+- listeners=PLAINTEXT://:9091
+- port=9091
+- log.dirs=/Users/schipp200/Documents/app/kafka_2.11-0.9.0.1/test/kafka-log-2
+
+
+Starting Broker-2:
 ```
 bin/kafka-server-start.sh config/server.properties &
 ```

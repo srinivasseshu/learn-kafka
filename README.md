@@ -105,5 +105,5 @@ Make changes to server2.properties as:
 
 Starting Broker-2:
 ```
-bin/kafka-server-start.sh config/server.properties &
+bin/kafka-server-start.sh config/server2.properties &
 ```

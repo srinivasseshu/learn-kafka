@@ -67,6 +67,17 @@ Then the Consumers can be organized in a ConsumerGroup as:
     - C5 - Reads P1 from Server2 
     - C6 - Reads P2 from Server2 
 
+### Zookeeper
+
+Kafka depends on Zookeeper for:
+- Maintaining state
+- Know which brokers exists
+- Who's the controller
+- Who's the leader
+- Topics available, etc...
+
+
+
 
 
 

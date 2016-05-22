@@ -67,6 +67,9 @@ Then the Consumers can be organized in a ConsumerGroup as:
     - C5 - Reads P1 from Server2 
     - C6 - Reads P2 from Server2 
 
+
+## Setting up Kafka Cluster
+
 ### Zookeeper
 
 Kafka depends on Zookeeper for:
@@ -76,11 +79,8 @@ Kafka depends on Zookeeper for:
 - Who's the leader
 - Topics available, etc...
 
-
-
-
-
-
+Starting Zookeeper:
 ```
-adfdfad
+bin/zookeeper-server-start.sh config/zookeeper.properties &
 ```
+

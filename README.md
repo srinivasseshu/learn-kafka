@@ -22,13 +22,14 @@ Each partition is like a log file, a producer keeps writing to the partition and
 
 You can save the data in Kafka for a defined duration, a day, a week, depending on the number of brokers and the storage available.
 
-Consumers can be:
-Adhoc consumers
-Batch consumers
-
 HA is availabe by having partition replicas on different brokers.
 
-All the Kafka reads/writes go to the leader-partition (the original parition). The replica partitions are updated just in case of broker failure. Producers/Consumers never ever interact with the replicas.
+
+Each partition has:
+-Leader (original partition)
+  All Kafka reads/writes go to the leader partition. Producers/Consumers never ever interact with the replicas.
+-Follower (replicas of partition)
+  The replica partitions are updated just in case of broker failure. 
 
 
 

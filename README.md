@@ -26,10 +26,10 @@ HA is availabe by having partition replicas on different brokers.
 
 
 Each partition has:
-- Leader (original partition)
-  All Kafka reads/writes go to the leader partition. Producers/Consumers never ever interact with the replicas.
-- Follower (replicas of partition)
-  The replica partitions are updated just in case of broker failure. 
+- Leader (original partition):
+    All Kafka reads/writes go to the leader partition. Producers/Consumers never ever interact with the replicas.
+- Follower (replicas of partition):
+    The replica partitions are updated just in case of broker failure. 
 
 
 

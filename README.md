@@ -125,6 +125,7 @@ bin/kafka-console-producer.sh --broker-list localhost:9092 --topic first
 Starting a Console Consumer:
 ```
 bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic first
+bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic first --from-beginning
 ```
 
 Producers have to know the broker-list, where as the Consumers have to know the zookeeper.

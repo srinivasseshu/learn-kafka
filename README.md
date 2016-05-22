@@ -107,3 +107,9 @@ Starting Broker-2:
 ```
 bin/kafka-server-start.sh config/server2.properties &
 ```
+
+You must always mention the zookeeper information when working with the topics:
+```
+bin/kafka-topics.sh --zookeeper localhost:2181 --create --topic first --partitions 2 --replication-factor 2
+bin/kafka-topics.sh --zookeeper localhost:2181 --list
+```

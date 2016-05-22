@@ -21,7 +21,6 @@ You can save the data in Kafka for a defined duration, a day, a week, depending 
 
 HA is availabe by having partition replicas on different brokers.
 
-
 Each partition has:
 - Leader (original partition):
     - All Kafka reads/writes go to the leader partition. Producers/Consumers never ever interact with the replicas.
@@ -37,6 +36,36 @@ You can customize load-balancing while writing to the partitions saying, for exa
 - Customer names a-e go to partition-0
 - Customer names f-m go to partition-1
 - Customer names n-z go to partition-2
+
+
+### Consumer Groups
+
+Consumers can be a part of Consumer Group.
+
+The number of consumers in a ConsumerGroup can be from 1 to Total#ofPartitionsForThatTopic
+
+If consumers are part of a ConsumerGroup, then each consumer will get part of the data for that topic.
+
+For Example, for a topic, the partitions are
+- Server1
+    - P0
+    - P3
+- Server2
+    - P1
+    - P2
+
+- Consumer Group A
+    - C1 - Reads P0, P3 from Server1 
+    - C2 - Reads P1, P2 from Server2
+
+- Consumer Group B
+    - C3 - Reads P0 from Server1 
+    - C4 - Reads P3 from Server1 
+    - C5 - Reads P1 from Server2 
+    - C6 - Reads P2 from Server2 
+
+
+
 
 ```
 adfdfad

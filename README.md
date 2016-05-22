@@ -42,11 +42,11 @@ You can customize load-balancing while writing to the partitions saying, for exa
 
 Consumers can be a part of Consumer Group.
 
-The number of consumers in a ConsumerGroup can be from 1 to Total#ofPartitionsForThatTopic
+The number of consumers in a ConsumerGroup can be from 1 to Total#ofPartitionsForThatTopic. i.e. A maximum of consumer per partition is possible in a ConsumerGroup
 
-If consumers are part of a ConsumerGroup, then each consumer will get part of the data for that topic.
+If consumers are part of a ConsumerGroup, then each consumer will get part of the data for that topic. Each consumer in the ConsumerGroup gets different set of the data, so that there are no duplicates. It allows for scaling, as if one of the consumer slows down, we can just add more consumers within the ConsumerGroup and does load balancing on the consumer end.
 
-For Example, for a topic, the partitions are
+For Example, for a topic, the partitions are:
 - Server1
     - P0
     - P3
@@ -54,6 +54,7 @@ For Example, for a topic, the partitions are
     - P1
     - P2
 
+Then the Consumers can be organized in a ConsumerGroup as:
 - Consumer Group A
     - C1 - Reads P0, P3 from Server1 
     - C2 - Reads P1, P2 from Server2

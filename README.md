@@ -117,3 +117,16 @@ bin/kafka-topics.sh --zookeeper localhost:2181 --list
 * In-Sync Replica: If a replica has the exact same data as that of the leader partition.
 
 
+Starting a Console Producer:
+```
+bin/kafka-console-producer.sh --broker-list localhost:9092 --topic first
+```
+
+Starting a Console Consumer:
+```
+bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic first
+```
+
+Producers have to know the broker-list, where as the Consumers have to know the zookeeper.
+
+The Consumers store their partition offsets (where they last read from) in the zookeeper.

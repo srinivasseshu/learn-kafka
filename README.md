@@ -113,3 +113,7 @@ You must always mention the zookeeper information when working with the topics:
 bin/kafka-topics.sh --zookeeper localhost:2181 --create --topic first --partitions 2 --replication-factor 2
 bin/kafka-topics.sh --zookeeper localhost:2181 --list
 ```
+
+* In-Sync Replica: If a replica has the exact same data as that of the leader partition.
+
+

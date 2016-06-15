@@ -1,3 +1,6 @@
+```
+https://github.com/gwenshap/kafka-examples
+```
 
 # Learning Kafka
 
@@ -131,3 +134,46 @@ bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic first --from-be
 Producers have to know the broker-list, where as the Consumers have to know the zookeeper.
 
 The Consumers store their partition offsets (where they last read from) in the zookeeper.
+
+### Producer
+
+Messages in Kafka are serialized and sent as ByteArrays.
+
+You can have the same Producer send a message to different topics. Topic is not part of the Producer configuration.
+
+```
+request.required.acks=0
+
+```
+Required Acknowledgements for a produce request:
+- 0 = Means, it is succcessful after the message immediately got out of the hands.
+- 1 = Means, Leader got it, but it didn't replicate to any of the followers yet.
+- (-1) = Means, not just the Leader, but all the In-Sync Replicas (ISR) got it as well.
+    - Safer, but have to wait more per message success
+
+
+```
+producer_type=sync
+
+```
+This is how long you want to wait for an acknowledgement from the server.
+
+Asynchronous Producers batches the messages, and hence you get the messages to the consumer like a whoosh.
+
+When using asynchronous producers, it's important to call the close() method, otherwise it would not flush the messages left in the buffer.
+
+### Consumer
+
+- High Level Consumer
+    - Kafka's out of the box consumer.
+    - Tracks which offsets were read in zookeeper/kafka
+    - Automatically balances partitions between threads/processes.
+- Simple Consumer
+    - Low level API
+    - Allows more control over how data is read and tracked.
+    - Requires attention to low level details
+- New Consumer
+    - Automatically handles failures and balances partitions
+    - Can choose between manual and automatic offset management
+
+

@@ -178,10 +178,12 @@ When using asynchronous producers, it's important to call the close() method, ot
 
 ### Kafka Availability & Consistency
 
-What if the leader and all the followers of a specific partition goes down? Look at the following scenario:
-Partition 0 - Replica 1 - Leader - No missing data - The leader is then lost after the followers
-Partition 0 - Replica 2 - Follower - Some missing data - This follower was lost second
-Partition 0 - Replica 3 - Follower - More missing data - This follower was lost first
+What if the leader and all the followers of a specific partition goes down? 
+
+Look at the following scenario:
+- Partition 0 - Replica 1 - Leader - No missing data - The leader is then lost after the followers
+- Partition 0 - Replica 2 - Follower - Some missing data - This follower was lost second
+- Partition 0 - Replica 3 - Follower - More missing data - This follower was lost first
 
 - Unclean Leader Election 
     - First node up is the new leader

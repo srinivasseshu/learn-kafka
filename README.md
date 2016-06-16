@@ -176,6 +176,23 @@ When using asynchronous producers, it's important to call the close() method, ot
     - Automatically handles failures and balances partitions
     - Can choose between manual and automatic offset management
 
+### Kafka Availability & Consistency
+
+What if the leader and all the followers of a specific partition goes down? Look at the following scenario:
+Partition 0 - Replica 1 - Leader - No missing data - The leader is then lost after the followers
+Partition 0 - Replica 2 - Follower - Some missing data - This follower was lost second
+Partition 0 - Replica 3 - Follower - More missing data - This follower was lost first
+
+- Unclean Leader Election 
+    - First node up is the new leader
+    - Any follower or the old leader coming up later will become followers
+    - They update their offsets & events to the same as that of new leader
+    - This means the old leader (which had the latest data until before failure) will get in sync as a follower with the new leader (despite new leader not having full data until losing all the replicas)
+    - Effective for least down-time, but the messages are lost.
+- Wait until the last leader is back
+    - Means possibly more downtime, but you won't lose the messages that were initially written to the leader before going down.
+
+
 
 # Learning Flume
 

@@ -188,7 +188,7 @@ Partition 0 - Replica 3 - Follower - More missing data - This follower was lost 
     - Any follower or the old leader coming up later will become followers
     - They update their offsets & events to the same as that of new leader
     - This means the old leader (which had the latest data until before failure) will get in sync as a follower with the new leader (despite new leader not having full data until losing all the replicas)
-    - Effective for least down-time, but the messages are lost.
+    - Effective for minimizing the down-time, but the messages (written to the old leader) may be lost.
 - Wait until the last leader is back
     - Means possibly more downtime, but you won't lose the messages that were initially written to the leader before going down.
 

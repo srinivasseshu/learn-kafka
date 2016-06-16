@@ -177,3 +177,24 @@ When using asynchronous producers, it's important to call the close() method, ot
     - Can choose between manual and automatic offset management
 
 
+# Learning Flume
+
+Flume Agent has the following:
+
+- Sources
+    - Sources are the modules which produces logs.
+    - Example: Twitter, logs (written to disk, etc), webserver, Kafka topics
+- Interceptors
+    - Interceptors receives the data from source
+    - They mask, re-format, validate the data received.
+- Selectors
+    - Helps choose what kind of processing happens to the data that is received.
+    - Interceptors may mark some of the messages critical, suspicious, etc and this data can be sent to a specific channel for special handling.
+    - Data is sent to a channel.
+- Channels
+    - Channel can be a memory (buffer memory) that receives the flume events.
+    - Channel can be a file, but can be a single point of failure
+    - Channel can be a Kafka, where these modified events (which went through interceptor, selector) can be produced to a new Kafka topic.
+- Sinks
+    - Final destination of the data.
+    - Can be HDFS, HBase, Solr, Kafka.

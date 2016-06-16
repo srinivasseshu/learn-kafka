@@ -192,6 +192,11 @@ Partition 0 - Replica 3 - Follower - More missing data - This follower was lost 
 - Wait until the last leader is back
     - Means possibly more downtime, but you won't lose the messages that were initially written to the leader before going down.
 
+What if we shutdown the leader?
+
+- Controlled shutdown: Controller will transfer the leadership to an ISR
+- Abrupt shutdown: Controller will detect loss of node and elect a new leader from ISR
+    - Abrupt shutdown takes few seconds, and can cause LeaderNotAvailable errors
 
 
 # Learning Flume

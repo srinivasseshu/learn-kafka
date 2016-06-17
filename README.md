@@ -204,12 +204,21 @@ What if we shutdown the leader?
 ### Dealing with the duplicates
 
 - At most Once
+    - Each message is received at most once. There could be loss of messages.
     - Consumer reads data, commits offset, and processes
+    - Consumer may lose data after committing offset, but before processing
 - At least Once
+    - We will get every message, but there can be duplicates
     - Consumer reads data, processes, and commits offset
+    - Consumer may receive duplicate, when the consumer crashes while processing and before committing offset
 - Exactly Once
-    - Deduplicate messages from the producer
+    - De-duplicate messages from the producer
+        - The producer sends a message, doesn't receive an ack, so sends again and may result in a duplicate.
+        - So, de-dupliating should happen on the producer end.
     - Write output of messaging, and commit offset together
+        - Can be done by writing the offset along with the message (to let's say HDFS file, as a column to DB transaction)
+    - This is slower
+    - Requires a lot of engineering
 
 
 

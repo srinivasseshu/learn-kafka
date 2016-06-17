@@ -185,6 +185,7 @@ Look at the following scenario:
 - Partition 0 - Replica 2 - Follower - Some missing data - This follower was lost second.
 - Partition 0 - Replica 3 - Follower - More missing data - This follower was lost first.
 
+
 - Unclean Leader Election 
     - First node up is the new leader
     - Any follower or the old leader coming up later will become followers

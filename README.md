@@ -1,9 +1,6 @@
-[Kafka Examples & Code Courtesy of Gwen](https://github.com/gwenshap/kafka-examples)
+[Github README Formatting Tips](https://help.github.com/articles/basic-writing-and-formatting-syntax/)
+[Kafka Coding Examples: Courtesy of Gwen](https://github.com/gwenshap/kafka-examples)
 
-```
-[Kafka Examples & Code Courtesy of Gwen](https://github.com/gwenshap/kafka-examples)
-https://help.github.com/articles/basic-writing-and-formatting-syntax/
-```
 
 # Learning Kafka
 

@@ -200,6 +200,17 @@ What if we shutdown the leader?
 - Abrupt shutdown: Controller will detect loss of node and elect a new leader from ISR
     - Abrupt shutdown takes few seconds, and can cause LeaderNotAvailable errors
 
+### Dealing with the duplicates
+
+- At most Once
+    - Consumer reads data, commits offset, and processes
+- At least Once
+    - Consumer reads data, processes, and commits offset
+- Exactly Once
+    - Deduplicate messages from the producer
+    - Write output of messaging, and commit offset together
+
+
 
 # Learning Flume
 
